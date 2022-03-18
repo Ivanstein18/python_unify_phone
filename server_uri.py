@@ -6,7 +6,7 @@ from fastapi import Body, Form
 app = FastAPI()
 
 
-@app.get("/unify_phone_from_form")
+@app.get("/unify_phone_from_query")
 def page(request: Request):
 
     header = request.headers.get('path')
