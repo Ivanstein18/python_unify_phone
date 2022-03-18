@@ -9,14 +9,12 @@ app = FastAPI()
 @app.get("/unify_phone_from_query")
 def page(request: Request):
 
-    header = request.headers.get('path')
+    query = request.query_params
+    query_dict = {str(query).split('=')[0] : str(query).split('=')[1]}      
 
-    phone = header.split('?')[-1]
-    phone_list = phone.split("=")
-    phone_namber = phone_list[-1]
+    phone_namber = query_dict["phone"]
+    print(phone_namber)
 
-
-    phone_namber = list(phone_namber.strip())
     pn_modern = []
 
     for i in phone_namber:
